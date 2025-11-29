@@ -1,74 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Christmas List</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-            margin: 20px;
+            background: linear-gradient(#c00000, #0a4d0a);
+            margin: 0;
             padding: 20px;
+            color: white;
+            background-size: cover;
+            position: relative;
         }
+
+        /* Snow effect */
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            color: white;
+            font-size: 1.2rem;
+            user-select: none;
+            pointer-events: none;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            from { transform: translateY(-10vh); }
+            to { transform: translateY(110vh); }
+        }
+
         h1 {
-            color: #613690;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px gold;
         }
-        ol {
-            line-height: 1.5;
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 100%;       /* allow full width */
+            padding: 0 20px;       /* small space on sides */
+            justify-content: center; /* centers cards in row if there’s extra space */
+
         }
-        b {
-            color: #ff0000;
+
+        .card {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            padding: 15px;
+            text-align: center;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+            margin-top: 15px;
         }
-        ul {
-            list-style-type: square;
+
+        .number {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            color: white;
+            font-weight: bold;
+            font-size: 1rem;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
         }
-        a {
+
+        .card-title {
+            font-weight: 700;
+            font-size: 1.3rem;  /* increase to make it bigger */
+            text-align: center;  /* center text */
+            display: block;      /* remove flex so text-align works */
+            gap: 6px;
+            margin-top: 15px;
+        }
+
+        .details {
+            font-weight: 500;
+            font-size: 1rem;  /* increase to make it bigger */
+            text-align: center;  /* center text */
+            display: block;      /* remove flex so text-align works */
+            gap: 6px;
+            margin-top: 20px;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px gold;
+        }
+
+        .card img {
+            width: 100%;
+            height: 150px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .icon {
+            font-size: 1.4rem;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .button {
+            display: block;
+            text-align: center;
+            background: lightgreen;
+            color: darkred;
+            padding: 10px;
+            border-radius: 8px;
             text-decoration: none;
-            color: #1a73e8;
+            font-weight: bold;
+            margin-top: 30px;
+            margin-bottom: 15px;
         }
-        a:hover {
-            text-decoration: underline;
-        }
-        li{
-            max-width: 640px;
-        }
+
     </style>
 </head>
 <body>
-    <h1>Christmas List</h1>
-    <h4>The list is in order by the stuff I really want (like 1st place to last place):</h4>
-    <b>** NO CLOTHES PLS **</b>
-    <ol>
-        <li>Disney+
-            <ul>
-                <li>BTW this is the number one thing I want</li>
-            </ul>
-        </li>
 
-        <li><a href="https://www.amazon.com/Nylon-Bracelets-Knotting-Necklaces-Friendship/dp/B0BZYSBG2N/ref=sr_1_3?crid=UOW10AX12W6E&dib=eyJ2IjoiMSJ9.iklP_aZyVG8yMs0DTUy_QR4M4lDhD8Q9W-w6oAVlMXUAR0lbm5WbRvbSOknNqtCmwfyWTHQmC7Mai6t-Ei9H56qajDJxGELoNqsJMOuYqmNKrvS0h0I0kIS9AqjKD2CsTX-94nFikKC2j_Egx4YmKitkaiuNLZyRMXrRus1sTd-RnLrEDiVuLG2ejk9QhZhgf9gxu72boIESdY1XXjMPoFJBmhXKa8cUCnX_4Dz8fIz2x65INirWdUGXVha-ov27BNwzq60MrzKPEN1IVju5ciEtHOYQFLU0son_zGUw_vY.29_f59-6zOm8m30FtldjoAj2N7Oh2RKazK133_Ro4p8&dib_tag=se&keywords=Elastic%2Bstring%2Bthread%2Bcord%2B0.8%2Bmm%2Bchinese%2Bknotting%2Bcord&qid=1732303005&sprefix=elastic%2Bstring%2Bthread%2Bcord%2B0.8%2Bmm%2Bchinese%2Bknotting%2Bcord%2Caps%2C147&sr=8-3&th=1" target="_blank">Elastic string thread cord - 0.8 mm chinese knotting cord</a></li>
-        
-        <li><a href="https://www.amazon.com/PH-PandaHall-Natural-Unfinished-Macrame/dp/B09T6V1VFP/ref=cm_cr_arp_d_product_top?ie=UTF8&th=1" target="_blank">Wooden Coin Beads</a></li>
-        
-        <li><a href="https://www.amazon.com/Mod-Podge-1470-Acrylic-Sealer/dp/B003VYD9DM/ref=sr_1_3?crid=3GBT7YBFISZBX&dib=eyJ2IjoiMSJ9.wk7seJRo5G0qaCCfRcBqIEG4iPSDvenCd7pYR1OXHc_Z1zC5ODmFlrP0rlpdDCpwj8TrCqhUqUG6XCJIXh6E0O4pONYfH4n6qyVJjZG5Se403tJ1PWjooNXt3UUs_2YYCsHxuHTQhdpIkm0AANlfJEe8mFrq6yMxUKBQoo0E34d09lz9cH-1Kavmh2TVKHiaOhM11X2MpVsEg7CAQ6sSy34MJpizUC5kEsLIP3Mx5LoQKocMoyUMrp-NdwVndnmaQMDOClS1EBxoLxCVoYx3A74hCx1ybf7dRvfttvOf8hk.ti6LGtclfmoer61TfnikzkwvN_pmHtcwZRib15dAO2M&dib_tag=se&keywords=acrylic+fixative+spray&qid=1732304588&sprefix=acrylic+fixative+spray%2Caps%2C205&sr=8-3" target="_blank">Acrylic fixative spray</a>
-            <ul>
-                <li>This means that it will set acrylic paint artwork so that it doesn't smudge or mess up. I tried looking for one that works well while not having a bad smell, but this was the best I could find.</li>
-                <li>Its basically like a setting spray for makeup.</li>
-            </ul>
-        </li>
+<h1>🎄 Vane's Christmas List 🎁</h1>
 
-        <li>Electric or regular lighter</li>
+<h3 style="text-align:center; margin-top:5px; color:#ffdddd;">
+    The list is in order by the stuff I really want (like 1st place to last place):
+</h3>
+<h3 style="text-align:center; margin-top:5px; color:#ffdddd;">
+    (Click 👉 on "View Link" button to check out the item)
+</h3>
+<h2 style="text-align:center; font-weight:bold; color:white; margin-top:3px;">
+    ** NO CLOTHES PLS **
+</h2>
 
-        <li><a href="https://www.amazon.com/Sony-MDRE9LP-BLK-Ear-Buds/dp/B004RE3YNA/ref=sr_1_5?crid=1F5RSYZQ8PXIR&dib=eyJ2IjoiMSJ9.IxfzCl4IO4qKj-EjTDVVjlAGpZBI-85h6vVAWmMJinArXIy32_t8YfUQlnEZFA-dzuJ0-yqYn1TmYtdt1TnyU_EW87291v0s89KTJSBT103dNzwS8U8W9Ewy2qYL_N89TeCjAJj6IGRSohvebkcnMKlms2P7bzhoni2OQ0v4UZoZjhmRbLGJOPDB8Jt8XhYhA1P6GNQANca27obYLLmiKDS3XoWYOv3gKUuggwo4b6I.Z3NKFjQE-PShqHQbU4_FXKpQuBkJzPRCVzKwRaDXQYw&dib_tag=se&keywords=sony%2Bearphones%2Bwith%2Bwire&qid=1732309569&sprefix=sony%2Bearphones%2Bwith%2Bwire%2Caps%2C186&sr=8-5&th=1" target="_blank">Black Sony Headphones</a></li>
+<div class="grid">
 
-        <li>Scotch clear packaging tape</li>
+    <!-- Item 1 -->
+    <div class="card">
+        <div class="number">1</div>
+        <div class="card-title">Disney+</div>
+        <p class="details">- BTW this is the #1 thing I want!</p>
+    </div>
 
-        <li>Amazon Giftcard</li>
+    <!-- Item 2 -->
+    <div class="card">
+        <div class="number">2</div>
+        <div class="card-title">Desk</div>
+        <p class="details">- Size: 22in x 27.3in<br><br>- Color: Brown</p>
+        <a class="button" href="https://www.amazon.com/GreenForest-Assembly-Required-Computer-Foldable/dp/B09TW8KPGB?th=1" target="_blank">View Link</a>
+    </div>
 
-        <li>POSCA markers</li>
+    <!-- Item 3 -->
+    <div class="card">
+        <div class="number">3</div>
+        <div class="card-title">Black Sony</div>
+        <div class="card-title">Headphones</div>
+        <a class="button" href="https://www.amazon.com/Sony-MDRE9LP-BLK-Ear-Buds/dp/B004RE3YNA/ref=sr_1_5?crid=1F5RSYZQ8PXIR&dib=eyJ2IjoiMSJ9.IxfzCl4IO4qKj-EjTDVVjlAGpZBI-85h6vVAWmMJinArXIy32_t8YfUQlnEZFA-dzuJ0-yqYn1TmYtdt1TnyU_EW87291v0s89KTJSBT103dNzwS8U8W9Ewy2qYL_N89TeCjAJj6IGRSohvebkcnMKlms2P7bzhoni2OQ0v4UZoZjhmRbLGJOPDB8Jt8XhYhA1P6GNQANca27obYLLmiKDS3XoWYOv3gKUuggwo4b6I.Z3NKFjQE-PShqHQbU4_FXKpQuBkJzPRCVzKwRaDXQYw&dib_tag=se&keywords=sony%2Bearphones%2Bwith%2Bwire&qid=1732309569&sprefix=sony%2Bearphones%2Bwith%2Bwire%2Caps%2C186&sr=8-5&th=1" target="_blank">View Link</a>
+    </div>
 
-        <li><a href="https://www.amazon.com/Apple-EarPods-Headphones-Lightning-Connector/dp/B0D7FVQ1ZB/ref=sr_1_4?crid=2KP5UJMR8RCZR&dib=eyJ2IjoiMSJ9.-99AIwiYlsgmQbNQ8hw-UJeATAd1QeGSCcXxXjrPdzO4_lZlPOuHNajZJ9TCkjMgxZ7_CcHThtLJyRUDrlzHvcix-n-HSV-2rXHPmnqAJaRaeAVVW-SJb_w5iaw0fEUaHwMr8PD6YV5E4d1J66fBW7ovFHhqIV0baC5R-HlzTMiDNjCbvl3hDdRA0S89n4nzwhqGcM4YJpL1jzvXvdSjbjRmZoJl3VS0Xdp7Z4TPs1mGcoX6N4fDsSflNBHbLe8vqQSZAf8nAyZjjjRqifEkPLoIjqjdqfuVzuzcu0MJ89U.b9RubtnCuoDIKZ9F8PEROfeb6qsC7f2FNeHBFS_7CB0&dib_tag=se&keywords=earphones%2Bfor%2Biphonexr&qid=1732309838&s=electronics&sprefix=earphones%2Bfor%2Biphonxr%2Celectronics%2C199&sr=1-4&th=1" target="_blank">Apple Headphones</a></li>
-    </ol>
+    <!-- Item 4 -->
+    <div class="card">
+        <div class="number">4</div>
+        <div class="card-title">Wedge Pillow</div>
+        <p class="details">- Size: Queen(10in x 6in x 60in - Big)<br><br>- Color: Gray</p>
+        <a class="button" href="https://www.amazon.com/Vekkia-Size（54-Headboard-Mattress-Wedge，Gap/dp/B091DD2YDB?th=1" target="_blank">View Link</a>
+    </div>
+
+    <!-- Item 5 -->
+    <div class="card">
+        <div class="number">5</div>
+        <div class="card-title">Face Warmer</div>
+        <p class="details">- Color: Black + Grey</p>
+        <a class="button" href="https://www.amazon.com/KGC-Winter-Warmer-Windproof-Weather/dp/B08J85FB5C?th=1" target="_blank">View Link</a>
+    </div>
+
+    <!-- Item 6 -->
+    <div class="card">
+        <div class="number">6</div>
+        <div class="card-title">Small Sewing</div>
+        <div class="card-title">Scissors</div>
+        <p class="details">- Size: 3.5in Long</p>
+        <a class="button" href="https://www.amazon.com/Scissors-Precision-Straight-Protective-Embroidery/dp/B0CMXZ8PHN/ref=sr_1_2?crid=YU9891WKP9QF&dib=eyJ2IjoiMSJ9.Zu7pnOXpG8SVwC1bLLOunpkn0Py1WGxLaKaK4GoLOBRNM-6Sovi-vRk-pWBOOBYGQ0FUUfB4jO9_OajheMbr51qsHJO9Br6OZ-3dfvaw9tGyojKtDx3YSFpFl0tV9VUIpYksqxqz9L9c8MFrhAAPxd2CaxLINBpMlFZLbF0rP_fxT5R4LOqXKip201RmvPQDpjAL8gwIz15MsAGza0mD_6bFqrTrvpLrLYNAwdqaGL6l-hWAOz7G8W84cCuMPYAfOwoLD7YbZ5ChJ6-mZL1fUIIyKxjSZgS42ayLoAWFHjY.kZpS4jqmJrnFfpl4QSwvI5fkK6U5xxqr1RGPU5I7eHI&dib_tag=se&keywords=small%2Bsewing%2Bscissors%2B3.5L%2Btransparent&qid=1764405008&sprefix=small%2Bsewing%2Bscissors%2B3.5l%2Btransparent%2Caps%2C133&sr=8-2&th=1" target="_blank">View Link</a>
+    </div>
+
+    <!-- Item 7 -->
+    <div class="card">
+        <div class="number">7</div>
+        <div class="card-title">Fuzzy Socks</div>
+        <p class="details">
+            - Color: Knee High 3 Pairs Mix2<br><br>
+            - **NOTE** If you can find high socks that only come with one pair that would be good (no black or white)
+        </p>
+        <a class="button" href="https://www.amazon.com/Womens-3-pack-Velvet-Fleece-Slipper/dp/B0DKJFCKFJ/ref=sr_1_5?crid=LZEK25A10W92&dib=eyJ2IjoiMSJ9.nnQTzwfxqVJsSF5pjnfh5Zpm913Og-4lE4gviOjubUtW9-1F5GcYR39q8dK4XXUTrfoiUjHZ3Z6n1TgiP9LqyhpZOYYRHGe5jUZQI207KUv-5frt4HEmc9YOobcxKDxz11pV4dqDoojg_A6DCfjBQYHiKL576OuQyg-TXrLMP4W6fCpQ9b63c4iyKpGL95x-YlgmOIZ3EfpACm7dCb3y_cCuKlfwYucIOjoSzN-0vJVgORdg89WkEOgavdXgnUBD_VqcMq8CD4NgoFYVi2_r-YzOSCTiu9SRDEQz3n9CeFU.248aBMjvm5j9EA132AtNYAKHchU4COZIRl3AGedUmu8&dib_tag=se&keywords=long%2Bsoft%2Bfluffy%2Bsocks%2Bup%2Bto%2Bthe%2Bshins&nsdOptOutParam=true&qid=1764405719&sprefix=long%2Bsoft%2Bfluffy%2Bsocks%2Bup%2Bto%2Bthe%2Bshins%2Caps%2C151&sr=8-5&th=1&psc=1" target="_blank">View Link</a>
+    </div>
+
+    <!-- Item 8 -->
+    <div class="card">
+        <div class="number">8</div>
+        <div class="card-title">Thin Tip (Art Brush)</div>
+        <p class="details">Color: Black</p>
+        <a class="button" href="https://www.amazon.com/Artdone-Metallic-Brushes-Details-Painting/dp/B0DFWDL9HP/ref=sr_1_1_sspa?crid=3GM39LZ58OTQD&dib=eyJ2IjoiMSJ9.f6rH5X9u0gm_RfwbCTKGbH4nSSTNkNYq9VXFW2y6IjZf5j61j1nPaDYFeIkJ8NjtZ7y5AFou2DzGFKJad-6W5n-n3hMiPY2qLsvxviH4PokEZg3jbjUFjEvxIhKmDOpCHdGb7bpExmwDEmK7pYmALzexI34TSbNspeed1aHneM_Pkc5pXiWedMZa-8rdzXuuklgdRLfVzbE_flTNuJ5OPYHx5ZUpnN6Rf9EHVz9Jt9EvYIBP_7PjnanUNm9vXywbtvMUSv38rqYMxbzpy5ZJ2B13jdWmcYPJdCFUPyUI-LM.-J6rYVhpuM-6bG9YD08ZCvCvwd9G-3NKvZ6QSAMDCBY&dib_tag=se&keywords=metal%2Btiny%2Btip%2Bfor%2Bdetail%2Bdrawing&qid=1764405441&sprefix=metal%2Btiny%2Btip%2Bfor%2Bdetail%2Bdrawing%2Caps%2C139&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1" target="_blank">View Link</a>
+    </div>
+
+    <!-- Item 9 -->
+    <div class="card">
+        <div class="number">9</div>
+        <div class="card-title">Fanny Pack</div>
+        <p class="details">Color: Black</p>
+        <a class="button" href="https://www.amazon.com/Running-Extender-Workout-Samsung-Gym-05BK/dp/B01EIC7T40/ref=sr_1_8?crid=2J6P87NX4OIQ6&dib=eyJ2IjoiMSJ9.iFN-s0K0imDX7ZcBfkSG-toNEyDvkUzz5CWliCg-KnOuuEGzcEyy6eVddHstlzqHeg88rR3N55-v35H3tvmRvF8IOM4jkTJk2NJLE1DCfHzQpo3f0QAD2UGClWfl0vGJqqy-g3-qSW4YMA6RPXZMwLZkD0gpOLO0xL-BrvFsjw-B2EiCKwwpt7NGB3fjq-RiAamanQaRsLLiUTdOhy9TFaNgkfKInQuR4R1YU7EThRBu9u8wGQgI0j_W1hdKaa1Ao98bqRPpDc8-1mla18LeSECH737rAm5up6CkjfPzyX0.GIm8VPVdCHNnMtVz-cJ1Zix1gtbvBVirTu0HxEuWChc&dib_tag=se&keywords=ushake+fanny+pack&qid=1764406037&sprefix=u+shak+fanny+pa%2Caps%2C168&sr=8-8" target="_blank">View Link</a>
+    </div>
+
+    <!-- Item 10 -->
+    <div class="card">
+        <div class="number">10</div>
+        <div class="card-title">Amazon Gift Card 🎁</div>
+    </div>
+
+</div>
+
+<script>
+    // Generate falling snow
+    for (let i = 0; i < 30; i++) {
+        let snow = document.createElement("div");
+        snow.className = "snowflake";
+        snow.innerHTML = "❄";
+        snow.style.left = Math.random() * 100 + "vw";
+        snow.style.animationDuration = 5 + Math.random() * 7 + "s";
+        snow.style.opacity = Math.random();
+        document.body.appendChild(snow);
+    }
+</script>
+
 </body>
 </html>
